@@ -6,16 +6,8 @@ class APIConstants {
   static const personPERFIX = '/person';
   static const popularPERFIX = '/popular';
 
-
-
-
-
-
   static const headerWithoutToken = {
     HttpHeaders.contentTypeHeader: 'application/json',
     HttpHeaders.acceptHeader: 'application/json'
   };
-
-
-
 }
