@@ -18,9 +18,9 @@ class PopularPerson {
 
     profilePath = json['profile_path'] ?? "";
     knownForDepartment = json['known_for_department'];
-    biography = json['biography'];
-    gender = json['gender'];
-    birthday = json['birthday'];
-    placeOfBirth = json['place_of_birth'];
+    biography = json['biography']??"";
+    gender = json['gender']??"-";
+    birthday = json['birthday']??"";
+    placeOfBirth = json['place_of_birth']??"";
   }
 }

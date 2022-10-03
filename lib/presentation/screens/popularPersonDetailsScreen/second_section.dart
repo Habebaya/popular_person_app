@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:task/business_logic/popular_person_provider.dart';
 import 'package:task/constant/api.dart';
 import 'package:task/data/models/popular_person_model.dart';
+import 'package:task/presentation/screens/popularPersonDetailsScreen/image_screen.dart';
 
 class SecondSection extends StatefulWidget {
   final PopularPerson popularPerson;
@@ -16,7 +17,7 @@ class SecondSection extends StatefulWidget {
 
 class _SecondSectionState extends State<SecondSection> {
   late PopularPersonProvider popularPersonProvider;
-  Future? _future;
+  late String selectedImage;
 
   @override
   void initState() {
@@ -49,9 +50,21 @@ class _SecondSectionState extends State<SecondSection> {
                 padding: const EdgeInsets.all(8),
                 itemCount: popularPersonProvider.images.length,
                 itemBuilder: (ctx, index) {
-                  return Image.network(
-                    APIConstants.imageBaseUrl +
-                        popularPersonProvider.images[index].filePath!,
+                  return InkWell(
+                    onTap: () {
+                      selectedImage = APIConstants.imageBaseUrl +
+                          popularPersonProvider.images[index].filePath!;
+                      Navigator.push(
+                          context,
+                      MaterialPageRoute(
+                          builder: (context) => PopularPersonImageScreen(
+                              selectedImage: selectedImage)));
+
+                    },
+                    child: Image.network(
+                      APIConstants.imageBaseUrl +
+                          popularPersonProvider.images[index].filePath!,
+                    ),
                   );
                 })),
       ],
