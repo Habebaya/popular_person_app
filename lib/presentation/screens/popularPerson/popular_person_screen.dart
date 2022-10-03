@@ -39,9 +39,9 @@ class _PopularPersonScreenState extends State<PopularPersonScreen> {
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
                             maxCrossAxisExtent: 300,
-                            crossAxisSpacing: 1.0,
-                            mainAxisSpacing: 0.5,
-                            childAspectRatio: 0.5),
+                            crossAxisSpacing: 0,
+                            mainAxisSpacing: 0,
+                            childAspectRatio: 1),
                     shrinkWrap: true,
                     physics: const ClampingScrollPhysics(),
                     padding: EdgeInsets.zero,

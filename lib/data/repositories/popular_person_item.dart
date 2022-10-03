@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:task/constant/api.dart';
 import 'package:task/data/models/popular_person_model.dart';
 
-
 class PopularPersonItem extends StatelessWidget {
   final PopularPerson popularPerson;
 
@@ -13,7 +12,7 @@ class PopularPersonItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 8),
+      margin: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
       padding: EdgeInsetsDirectional.all(4),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -41,13 +40,12 @@ class PopularPersonItem extends StatelessWidget {
         child: Hero(
             tag: popularPerson.id,
             child: Container(
-              color: Colors.grey,
+              color: Colors.white,
               child: Image.network(
-
-             APIConstants.imageBaseUrl + popularPerson.profilePath!, fit: BoxFit.cover,
-              ),
-            )
+                  APIConstants.imageBaseUrl + '${popularPerson.profilePath}',
+                  fit: BoxFit.cover),
+            )),
       ),
-    ),);
+    );
   }
 }
