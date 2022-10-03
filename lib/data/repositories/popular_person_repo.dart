@@ -6,7 +6,23 @@ class PopularPersonRepository {
   final NetworkService _networkService = NetworkService();
 
   Future<Response> getAllPopularPerson() async {
-    const url = '${APIConstants.baseUrl}${APIConstants.personPERFIX}${APIConstants.popularPERFIX}?api_key=${APIConstants.apiKey}';
+    const url =
+        '${APIConstants.baseUrl}${APIConstants.personPERFIX}${APIConstants.popularPERFIX}?api_key=${APIConstants.apiKey}';
+
+    late Response response;
+    print(url);
+    try {
+      response = await _networkService.get(url,
+          headers: APIConstants.headerWithoutToken);
+    } catch (e) {
+      print(e);
+    }
+
+    return response;
+  }
+  Future<Response> getPopularPerson(int id) async {
+    final url =
+       '${APIConstants.baseUrl}${APIConstants.personPERFIX} $id?api_key=${APIConstants.apiKey}';
 
     late Response response;
     print(url);
