@@ -20,9 +20,10 @@ class PopularPersonRepository {
 
     return response;
   }
+
   Future<Response> getPopularPerson(int id) async {
     final url =
-       '${APIConstants.baseUrl}${APIConstants.personPERFIX}/$id?api_key=${APIConstants.apiKey}';
+        '${APIConstants.baseUrl}${APIConstants.personPERFIX}/$id?api_key=${APIConstants.apiKey}';
 
     late Response response;
     print(url);
@@ -36,5 +37,19 @@ class PopularPersonRepository {
     return response;
   }
 
+  Future<Response> getPopularPersonImage(int id) async {
+    final url =
+        '${APIConstants.baseUrl}${APIConstants.personPERFIX}/$id${APIConstants.imageBaseUrl}?api_key=${APIConstants.apiKey}';
 
+    late Response response;
+    print(url);
+    try {
+      response = await _networkService.get(url,
+          headers: APIConstants.headerWithoutToken);
+    } catch (e) {
+      print(e);
+    }
+
+    return response;
+  }
 }
