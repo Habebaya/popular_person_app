@@ -9,14 +9,15 @@ class PopularPersonItem extends StatelessWidget {
   const PopularPersonItem({Key? key, required this.popularPerson})
       : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
+      onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const PopularPersonDetailsScreen()),
+          MaterialPageRoute(
+              builder: (context) =>
+                  PopularPersonDetailsScreen(popularPerson: popularPerson!)),
         );
       },
       child: Container(
@@ -30,7 +31,7 @@ class PopularPersonItem extends StatelessWidget {
         child: GridTile(
             footer: Container(
               width: double.infinity,
-              padding:const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
               color: Colors.black54,
               alignment: Alignment.bottomCenter,
               child: Text(
@@ -68,4 +69,3 @@ class PopularPersonItem extends StatelessWidget {
     );
   }
 }
-

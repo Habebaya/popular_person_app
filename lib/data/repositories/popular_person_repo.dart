@@ -22,7 +22,7 @@ class PopularPersonRepository {
   }
   Future<Response> getPopularPerson(int id) async {
     final url =
-       '${APIConstants.baseUrl}${APIConstants.personPERFIX} $id?api_key=${APIConstants.apiKey}';
+       '${APIConstants.baseUrl}${APIConstants.personPERFIX}/$id?api_key=${APIConstants.apiKey}';
 
     late Response response;
     print(url);

@@ -36,7 +36,7 @@ class PopularPersonProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> getItem(int id) async {
+  Future<void> getPopularPerson(int id) async {
     Response response;
     try {
       response = await _popularPersonRepository.getPopularPerson(id);
