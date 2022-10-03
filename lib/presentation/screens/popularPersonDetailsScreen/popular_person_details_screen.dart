@@ -36,6 +36,8 @@ class _PopularPersonDetailsScreenState
         appBar: AppBar(
           title: const Text("Popular Person Details"),
           centerTitle: true,
+          backgroundColor: Colors.black,
+
         ),
         body: SingleChildScrollView(
           child: Column(

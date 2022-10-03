@@ -16,18 +16,20 @@ class PopularPersonProvider with ChangeNotifier {
   List<PopularPersonImage> images = [];
   late PopularPerson popularPerson;
 
-  Future<void> getAllPopularPerson() async {
+  Future<void> getAllPopularPerson(int page) async {
     try {
-      popularPersonList.clear();
       final popularPersonResponse =
-          await _popularPersonRepository.getAllPopularPerson();
+          await _popularPersonRepository.getAllPopularPerson(page);
       if (Validators.responseIsValid(popularPersonResponse)) {
         final decoded = jsonDecode(popularPersonResponse.body);
 
-        List popularPerson = decoded['results'];
-
-        for (var element in popularPerson) {
-          popularPersonList.add(PopularPerson.fromJson(element));
+        if (page <= decoded['total_pages']) {
+          List popularPerson = decoded['results'];
+          for (var element in popularPerson) {
+            popularPersonList.add(PopularPerson.fromJson(element));
+          }
+        } else {
+          log("no Data");
         }
       }
     } catch (e) {
@@ -62,7 +64,6 @@ class PopularPersonProvider with ChangeNotifier {
           await _popularPersonRepository.getPopularPersonImage(id);
       if (Validators.responseIsValid(popularPersonImageResponse)) {
         final decoded = jsonDecode(popularPersonImageResponse.body);
-        print("responde ${decoded}");
 
         List popularPersonImage = decoded['profiles'];
 
@@ -73,7 +74,6 @@ class PopularPersonProvider with ChangeNotifier {
     } catch (e) {
       log(e.toString());
     }
-
     notifyListeners();
   }
 }

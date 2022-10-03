@@ -30,7 +30,6 @@ class FirstSection extends StatelessWidget {
                         fit: BoxFit.cover,
                         loadingBuilder: (context, child, loadingProgress) {
                           if (loadingProgress == null) return child;
-
                           return Center(
                               child: Image.asset('assets/images/loading.gif'));
                         },

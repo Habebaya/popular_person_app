@@ -24,8 +24,7 @@ class PopularPersonItem extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
-        margin: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-        padding: const EdgeInsetsDirectional.all(4),
+        padding: const EdgeInsetsDirectional.all(2),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8),
