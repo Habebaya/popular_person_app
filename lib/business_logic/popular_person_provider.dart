@@ -11,6 +11,7 @@ class PopularPersonProvider with ChangeNotifier {
   final PopularPersonRepository _popularPersonRepository =
       PopularPersonRepository();
   List<PopularPerson> popularPersonList = [];
+  late PopularPerson popularPerson;
 
   Future<void> getAllPopularPerson() async {
     try {
@@ -19,14 +20,11 @@ class PopularPersonProvider with ChangeNotifier {
       if (Validators.responseIsValid(popularPersonResponse)) {
         print("habrba");
 
-
         final decoded = jsonDecode(popularPersonResponse.body);
-
 
         List popularPerson = decoded['results'];
 
         for (var element in popularPerson) {
-
           popularPersonList.add(PopularPerson.fromJson(element));
           print(popularPersonList.length);
         }
@@ -38,10 +36,22 @@ class PopularPersonProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void classifyPopularPerson(Map<String, dynamic> data) {
-    final List allPopularPersonMap = data['results'];
-    popularPersonList = allPopularPersonMap
-        .map((popularPerson) => PopularPerson.fromJson(popularPerson))
-        .toList();
+  Future<void> getItem(int id) async {
+    Response response;
+    try {
+      response = await _popularPersonRepository.getPopularPerson(id);
+      if (Validators.responseIsValid(response)) {
+        final decoded = jsonDecode(response.body);
+        print(response.body);
+
+        final onePopularPerson = decoded;
+        popularPerson = PopularPerson.fromJson(onePopularPerson);
+        notifyListeners();
+      }
+    } catch (e) {
+      print(e);
+    }
+
+    notifyListeners();
   }
 }
