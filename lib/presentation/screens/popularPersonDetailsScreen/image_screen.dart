@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gallery_saver/gallery_saver.dart';
 class PopularPersonImageScreen extends StatelessWidget {
   final String selectedImage;
    const PopularPersonImageScreen({Key? key,required this.selectedImage}) : super(key: key);
@@ -18,9 +19,15 @@ class PopularPersonImageScreen extends StatelessWidget {
             Hero(
               tag: "currentImage",
                 child: Image.network(selectedImage)),
-            IconButton(onPressed: (){
-              print("Download");
-            }, icon: Icon(Icons.download,color: Colors.blue,size: 40,))
+            IconButton(onPressed: () async{
+
+
+              await GallerySaver.saveImage(selectedImage);
+              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                content: const Text("Downloaded"),
+              ));
+
+            }, icon: const Icon(Icons.download,color: Colors.blue,size: 40,))
           ],
         ),
       ),
