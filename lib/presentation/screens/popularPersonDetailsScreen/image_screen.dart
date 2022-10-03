@@ -15,23 +15,25 @@ class PopularPersonImageScreen extends StatelessWidget {
           backgroundColor: Colors.transparent,
         ),
         backgroundColor: Colors.black,
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.network(selectedImage),
-            IconButton(
-                onPressed: () async {
-                  await GallerySaver.saveImage(selectedImage);
-                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                    content: const Text("Downloaded"),
-                  ));
-                },
-                icon: const Icon(
-                  Icons.download,
-                  color: Colors.blue,
-                  size: 40,
-                ))
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Image.network(selectedImage),
+              IconButton(
+                  onPressed: () async {
+                    await GallerySaver.saveImage(selectedImage);
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: Text("Downloaded"),
+                    ));
+                  },
+                  icon: const Icon(
+                    Icons.download,
+                    color: Colors.blue,
+                    size: 40,
+                  ))
+            ],
+          ),
         ),
       ),
     );

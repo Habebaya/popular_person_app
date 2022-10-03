@@ -12,7 +12,6 @@ class PopularPersonRepository {
         '${APIConstants.baseUrl}${APIConstants.personPERFIX}${APIConstants.popularPERFIX}?api_key=${APIConstants.apiKey}&page=${page}';
 
     late Response response;
-    print(url);
     try {
       response = await _networkService.get(url,
           headers: APIConstants.headerWithoutToken);

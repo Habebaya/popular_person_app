@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -8,7 +10,10 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
         create: (BuildContext context) => PopularPersonProvider()),
-  ], child: const MyApp()));
+  ], child:  DevicePreview(
+    builder: (BuildContext context) => const MyApp(),
+    enabled: !kReleaseMode,
+  ),));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+        locale: DevicePreview.locale(context),
+
+        builder: DevicePreview.appBuilder,
+
         theme: ThemeData(
           primaryColor: Colors.black
         ),
