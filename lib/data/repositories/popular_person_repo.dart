@@ -2,7 +2,7 @@ import 'package:http/http.dart';
 import 'package:task/constant/api.dart';
 import 'package:task/service/network_service.dart';
 
-class ItemService {
+class PopularPersonRepository {
   final NetworkService _networkService = NetworkService();
 
   Future<Response> getAllPopularPerson() async {
