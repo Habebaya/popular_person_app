@@ -19,7 +19,7 @@ class PopularPersonItem extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (context) =>
-                  PopularPersonDetailsScreen(popularPerson: popularPerson!)),
+                  PopularPersonDetailsScreen(popularPerson: popularPerson)),
         );
       },
       child: Container(

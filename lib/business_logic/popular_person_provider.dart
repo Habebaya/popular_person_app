@@ -60,7 +60,7 @@ class PopularPersonProvider with ChangeNotifier {
           await _popularPersonRepository.getPopularPersonImage(id);
       if (Validators.responseIsValid(popularPersonImageResponse)) {
         final decoded = jsonDecode(popularPersonImageResponse.body);
-        log("responde ${decoded}");
+        print("responde ${decoded}");
 
         List popularPersonImage = decoded['profiles'];
 

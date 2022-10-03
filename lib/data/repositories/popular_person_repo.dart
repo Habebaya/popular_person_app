@@ -39,7 +39,7 @@ class PopularPersonRepository {
 
   Future<Response> getPopularPersonImage(int id) async {
     final url =
-        '${APIConstants.baseUrl}${APIConstants.personPERFIX}/$id${APIConstants.imageBaseUrl}?api_key=${APIConstants.apiKey}';
+        '${APIConstants.baseUrl}${APIConstants.personPERFIX}/$id${APIConstants.imagesERFIX}?api_key=${APIConstants.apiKey}';
 
     late Response response;
     print(url);

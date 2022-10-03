@@ -108,9 +108,7 @@ class FirstSection extends StatelessWidget {
               style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
           ),
-          const SizedBox(
-            height: 15,
-          ),
+
           const Text(
             "Biography",
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

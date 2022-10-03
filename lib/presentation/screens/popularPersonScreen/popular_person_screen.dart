@@ -26,7 +26,7 @@ class _PopularPersonScreenState extends State<PopularPersonScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("PopularPerson"),
+          title: const Text("Popular Person"),
           centerTitle: true,
         ),
         body: FutureBuilder(

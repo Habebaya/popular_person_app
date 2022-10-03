@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/data/models/popular_person_model.dart';
 import 'package:task/presentation/screens/popularPersonDetailsScreen/first_section.dart';
+import 'package:task/presentation/screens/popularPersonDetailsScreen/second_section.dart';
 
 import '../../../../business_logic/popular_person_provider.dart';
 
 class PopularPersonDetailsScreen extends StatefulWidget {
-  PopularPerson popularPerson = PopularPerson();
+  final PopularPerson popularPerson ;
 
-  PopularPersonDetailsScreen({Key? key, required this.popularPerson})
+ const  PopularPersonDetailsScreen({Key? key, required this.popularPerson})
       : super(key: key);
 
   @override
@@ -33,7 +34,7 @@ class _PopularPersonDetailsScreenState
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("PopularPerson"),
+          title: const Text("Popular Person Details"),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -48,6 +49,7 @@ class _PopularPersonDetailsScreenState
                       return FirstSection(popularPerson: popularPersonProvider.popularPerson);
                     }
                   }),
+              SecondSection(popularPerson: widget.popularPerson)
             ],
           ),
         ));
