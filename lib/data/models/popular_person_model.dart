@@ -1,5 +1,6 @@
 class PopularPerson {
-  String? id, name, profilePath,knownForDepartment;
+  String?  name, profilePath,knownForDepartment;
+  dynamic?id;
 
   PopularPerson({this.id, this.name, this.profilePath, this.knownForDepartment});
 

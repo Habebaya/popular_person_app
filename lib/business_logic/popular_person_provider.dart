@@ -17,13 +17,18 @@ class PopularPersonProvider with ChangeNotifier {
       final popularPersonResponse =
           await _popularPersonRepository.getAllPopularPerson();
       if (Validators.responseIsValid(popularPersonResponse)) {
-        print(popularPersonResponse.body);
+        print("habrba");
+
 
         final decoded = jsonDecode(popularPersonResponse.body);
+
+
         List popularPerson = decoded['results'];
 
         for (var element in popularPerson) {
+
           popularPersonList.add(PopularPerson.fromJson(element));
+          print(popularPersonList.length);
         }
       }
     } catch (e) {
