@@ -8,7 +8,7 @@ class PopularPerson {
   PopularPerson.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    profilePath = json['profilePath'];
+    profilePath = json['profile_path'];
     knownForDepartment = json ['known_for_department'];
 
   }

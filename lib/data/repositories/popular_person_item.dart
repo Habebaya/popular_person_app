@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:task/constant/api.dart';
 import 'package:task/data/models/popular_person_model.dart';
-
 
 
 class PopularPersonItem extends StatelessWidget {
   final PopularPerson popularPerson;
 
-  const PopularPersonItem({Key? key, required this.popularPerson}) : super(key: key);
+  const PopularPersonItem({Key? key, required this.popularPerson})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,21 +39,15 @@ class PopularPersonItem extends StatelessWidget {
           ),
         ),
         child: Hero(
-          tag: popularPerson.id,
-          child: Container(
-            color: Colors.grey,
-            child: popularPerson.profilePath!.isNotEmpty
-                ? FadeInImage.assetNetwork(
-              width: double.infinity,
-              height: double.infinity,
-              placeholder: 'assets/images/loading.gif',
-              image: popularPerson.profilePath!,
-              fit: BoxFit.cover,
+            tag: popularPerson.id,
+            child: Container(
+              color: Colors.grey,
+              child: Image.network(
+
+             APIConstants.imageBaseUrl + popularPerson.profilePath!, fit: BoxFit.cover,
+              ),
             )
-                : Image.asset('assets/images/placeholder.jpg'),
-          ),
-        ),
       ),
-    );
+    ),);
   }
 }

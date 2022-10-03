@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/business_logic/popular_person_provider.dart';
+import 'package:task/data/repositories/popular_person_item.dart';
 
 class PopularPersonScreen extends StatefulWidget {
   const PopularPersonScreen({Key? key}) : super(key: key);
@@ -37,18 +38,19 @@ class _PopularPersonScreenState extends State<PopularPersonScreen> {
                 return GridView.builder(
                     gridDelegate:
                         const SliverGridDelegateWithMaxCrossAxisExtent(
-                            maxCrossAxisExtent: 200,
-                            crossAxisSpacing: 2.0,
-                            mainAxisSpacing: 2.0,
+                            maxCrossAxisExtent: 300,
+                            crossAxisSpacing: 1.0,
+                            mainAxisSpacing: 0.5,
                             childAspectRatio: 0.5),
                     shrinkWrap: true,
                     physics: const ClampingScrollPhysics(),
                     padding: EdgeInsets.zero,
                     itemCount: popularPersonProvider.popularPersonList.length,
                     itemBuilder: (ctx, index) {
-                      return Text(popularPersonProvider
-                          .popularPersonList[index].name
-                          .toString());
+                      return PopularPersonItem(
+                        popularPerson:
+                            popularPersonProvider.popularPersonList[index],
+                      );
                     });
               }
             }));
