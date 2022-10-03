@@ -18,6 +18,7 @@ class PopularPersonProvider with ChangeNotifier {
 
   Future<void> getAllPopularPerson() async {
     try {
+      popularPersonList.clear();
       final popularPersonResponse =
           await _popularPersonRepository.getAllPopularPerson();
       if (Validators.responseIsValid(popularPersonResponse)) {
@@ -56,6 +57,7 @@ class PopularPersonProvider with ChangeNotifier {
 
   Future<void> getPopularPersonImage(int id) async {
     try {
+      images.clear();
       final popularPersonImageResponse =
           await _popularPersonRepository.getPopularPersonImage(id);
       if (Validators.responseIsValid(popularPersonImageResponse)) {
