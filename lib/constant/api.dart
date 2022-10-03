@@ -6,6 +6,8 @@ class APIConstants {
   static const String imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
   static const personPERFIX = '/person';
   static const popularPERFIX = '/popular';
+  static const imagesERFIX = '/images';
+
 
 
   static const headerWithoutToken = {
