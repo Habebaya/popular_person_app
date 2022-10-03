@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/data/models/popular_person_model.dart';
+import 'package:task/presentation/screens/popularPersonDetailsScreen/first_section.dart';
 
 import '../../../../business_logic/popular_person_provider.dart';
 
@@ -44,7 +45,7 @@ class _PopularPersonDetailsScreenState
                     if (s.connectionState == ConnectionState.waiting) {
                       return const Center(child: CircularProgressIndicator());
                     } else {
-                      return Text(popularPersonProvider.popularPerson.name.toString());
+                      return FirstSection(popularPerson: popularPersonProvider.popularPerson);
                     }
                   }),
             ],
