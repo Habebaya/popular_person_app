@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/data/models/popular_person_model.dart';
 
-import '../../../business_logic/popular_person_provider.dart';
+import '../../../../business_logic/popular_person_provider.dart';
 
 class PopularPersonDetailsScreen extends StatefulWidget {
   PopularPerson popularPerson = PopularPerson();
@@ -35,14 +35,20 @@ class _PopularPersonDetailsScreenState
           title: const Text("PopularPerson"),
           centerTitle: true,
         ),
-        body: FutureBuilder(
-            future: _future,
-            builder: (c, s) {
-              if (s.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return Text("popularPersonProvider.popularPerson.name.toString()");
-              }
-            }));
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              FutureBuilder(
+                  future: _future,
+                  builder: (c, s) {
+                    if (s.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    } else {
+                      return Text(popularPersonProvider.popularPerson.name.toString());
+                    }
+                  }),
+            ],
+          ),
+        ));
   }
 }

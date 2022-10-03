@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:task/constant/api.dart';
 import 'package:task/data/models/popular_person_model.dart';
-import 'package:task/presentation/screens/popularPerson/popular_person_details_screen.dart';
+
+import '../popularPersonDetailsScreen/popular_person_details_screen.dart';
+
 
 class PopularPersonItem extends StatelessWidget {
   final PopularPerson popularPerson;

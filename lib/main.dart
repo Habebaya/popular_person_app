@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:task/business_logic/popular_person_provider.dart';
-import 'package:task/presentation/screens/popularPerson/popular_person_screen.dart';
+import 'package:task/presentation/screens/popularPersonScreen/popular_person_screen.dart';
 
 void main() {
   runApp(MultiProvider(providers: [
