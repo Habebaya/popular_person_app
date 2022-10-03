@@ -8,12 +8,13 @@ class PopularPersonItem extends StatelessWidget {
   const PopularPersonItem({Key? key, required this.popularPerson})
       : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
-      padding: EdgeInsetsDirectional.all(4),
+      margin: const EdgeInsetsDirectional.fromSTEB(4, 4, 4, 4),
+      padding: const EdgeInsetsDirectional.all(4),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -58,3 +59,4 @@ class PopularPersonItem extends StatelessWidget {
     );
   }
 }
+

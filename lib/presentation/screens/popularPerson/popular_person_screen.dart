@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/business_logic/popular_person_provider.dart';
-import 'package:task/data/repositories/popular_person_item.dart';
+import 'package:task/presentation/screens/popularPerson/popular_person_item.dart';
 
 class PopularPersonScreen extends StatefulWidget {
   const PopularPersonScreen({Key? key}) : super(key: key);
