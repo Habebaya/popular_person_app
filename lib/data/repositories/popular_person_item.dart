@@ -38,13 +38,20 @@ class PopularPersonItem extends StatelessWidget {
           ),
         ),
         child: Hero(
-            tag: popularPerson.id,
-            child: Container(
-              color: Colors.white,
-              child: Image.network(
-                  APIConstants.imageBaseUrl + '${popularPerson.profilePath}',
-                  fit: BoxFit.cover),
-            )),
+          tag: popularPerson.id,
+          child: Container(
+            color: Colors.grey,
+            child: popularPerson.profilePath!.isNotEmpty
+                ? FadeInImage.assetNetwork(
+              width: double.infinity,
+              height: double.infinity,
+              placeholder: 'assets/images/loading.gif',
+              image: APIConstants.imageBaseUrl + popularPerson.profilePath!,
+              fit: BoxFit.cover,
+            )
+                : Image.asset('assets/images/placeholder.jpeg'),
+          ),
+        ),
       ),
     );
   }
